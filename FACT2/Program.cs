@@ -10,18 +10,35 @@ namespace FACT2
     {
         public static void Main()
         {
-            int givenNumber, factorial = 1;
-
-            Console.WriteLine("For Loop - Find the factorial of a given number :");
-            Console.WriteLine("///////////////////////////////////////////////////////");
-            givenNumber = Convert.ToInt32(Console.ReadLine());
-
-            for(int i = 2; i <= givenNumber; i++)
+            try
             {
-                factorial*= i;
-            }
+                int givenNumber, factorial = 1;
 
-            Console.WriteLine("Factorial : {0}", factorial);
+                Console.WriteLine("For Loop - Find the factorial of a given number :");
+                Console.WriteLine("///////////////////////////////////////////////////////");
+                givenNumber = Convert.ToInt32(Console.ReadLine());
+
+                if (givenNumber < 0)
+                {
+                    Console.WriteLine("Negative values can not calculated for factorial");
+                }
+
+                else
+
+                {
+
+                    for (int i = 2; i <= givenNumber; i++)
+                    {
+                        factorial *= i;
+                    }
+
+                    Console.WriteLine("Factorial : {0}", factorial);
+                }
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadKey();
 
         }
